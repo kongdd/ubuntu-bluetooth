@@ -9,7 +9,7 @@ Thanks to:
 Usage:
 
 $ ./export-ble-infos.py <args>
-$ sudo bash -c 'cp -r ./bluetooth /var/lib
+$ sudo bash -c 'cp -r ./bluetooth /var/lib'
 $ sudo service bluetooth force-reload
 $ rm -r bluetooth
 """
@@ -68,7 +68,7 @@ def main():
     parser = OptionParser()
     parser.add_option("-v", "--verbose", action='store_true', dest='verbose')
     parser.add_option("-s", "--system", dest="system", metavar="FILE",
-                      default="/media/C/Windows/System32/config/SYSTEM",
+                      default="/media/C/WINDOWS/System32/config/SYSTEM",
                       help="SYSTEM file in Windows. Usually at /Windows/System32/config/system.")
     parser.add_option("-k", "--key", dest="key", metavar="KEY",
                       default=win_key,
