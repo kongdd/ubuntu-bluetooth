@@ -2,13 +2,14 @@ library(stringr)
 library(glue)
 
 #' Keyboard_k380
-#' @param key 4A4CFC5EE71DEA8F7646C6B9FCF66B7E
+#' @param key For example, 4A4CFC5EE71DEA8F7646C6B9FCF66B7E
 #' @export
 write_Keyboard_k380 <- function(key, outfile = "info") {
+  key = gsub(":", "", key) # bug fixed: 28 May, 2022
   template = glue(
     "[General]
     Name=Keyboard K380
-    Class=0x000540
+    Class=0x002540
     SupportedTechnologies=BR/EDR;
     Trusted=true
     Blocked=false
@@ -28,7 +29,6 @@ write_Keyboard_k380 <- function(key, outfile = "info") {
   )
   writeLines(template, outfile)
 }
-
 
 is_lower_mac <- function(x) {
   sapply(x, function(x) tolower(x) == x && nchar(x) == 12)
